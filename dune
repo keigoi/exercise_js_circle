@@ -1,0 +1,4 @@
+
+(alias
+ (name default) ; ← どうも default というエイリアスが dune build で実行されるアクションに対応するらしい
+ (deps bin/main.js bin/index.html)) ; 上で決めた .js の名前に依存関係を張っておく

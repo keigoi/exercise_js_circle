@@ -1,0 +1,18 @@
+(executable
+ (public_name exercise_js_circle)
+ (name main)
+ (libraries exercise_js_circle js_of_ocaml-lwt)
+ (modes byte)
+ (preprocess (pps js_of_ocaml-ppx))
+ )
+
+(rule
+ (targets main.js) ; ←ここに生成する.jsファイル名をかく
+ (action
+  (run
+   %{bin:js_of_ocaml}
+   --source-map
+   %{dep:main.bc} ; ← ここに メインの実行形式のファイル名.bc と書く．
+   -o
+   %{targets}
+   --pretty)))
